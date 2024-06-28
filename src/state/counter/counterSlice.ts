@@ -30,7 +30,6 @@ const counterSlice = createSlice({
             .addCase(incrementAsync.pending, () => {
                 console.log('increment pendig')
             })
-
     }
 })
 
