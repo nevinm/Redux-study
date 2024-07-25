@@ -1,6 +1,9 @@
 import { useState, useContext } from "react"
 import { ThemeSwitcher } from "./ThemeSwitcher"
 import { ThemeContext } from "../context/ThemeProvider"
+import { useModal } from "../customHooks/useModal"
+import { Modal } from "../components/Modal"
+
 const initialTodos = [
     {
         title: "Laundry",
@@ -25,6 +28,7 @@ const initialTodos = [
 export const Todo = () => {
     const [todos, setTodos] = useState(initialTodos)
     const { theme } = useContext(ThemeContext);
+    const { isOpen, openModal } = useModal()
 
     const handleInputChange = (e, todo) => {
         const { id } = todo
@@ -68,17 +72,16 @@ export const Todo = () => {
     }
 
     const handleCreateNewTodo = () => {
-        const newTodo = {
-            title: "New Todo",
-            done: false,
-            isEditing: true,
-            id: Date.now() + todos.length
-        };
-        setTodos([...todos, newTodo]);
+        openModal()
     };
+
+    const handleSaveModal = (newTodo) => {
+        setTodos([...todos, newTodo]);
+    }
 
     return (
         <div className={`app ${theme}`}>
+            <Modal isOpen={isOpen} handleSaveModal={handleSaveModal} />
             <h3>
                 Todo app
             </h3>

@@ -77,3 +77,15 @@
   background-color: black;
   color: white;
 }
+
+.modal-container {
+  display: none;
+  border: 1px solid black;
+  width: 500px;
+  height: auto;
+}
+
+.modal-container.visible {
+  display: flex;
+  z-index: 1000;
+}
