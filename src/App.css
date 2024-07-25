@@ -67,3 +67,13 @@
   width: 500px;
   border: 2px solid ghostwhite;
 }
+
+.app.light {
+  background-color: white;
+  color: black;
+}
+
+.app.dark {
+  background-color: black;
+  color: white;
+}

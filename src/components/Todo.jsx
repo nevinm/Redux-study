@@ -1,5 +1,6 @@
-import { useState } from "react"
-
+import { useState, useContext } from "react"
+import { ThemeSwitcher } from "./ThemeSwitcher"
+import { ThemeContext } from "../context/ThemeProvider"
 const initialTodos = [
     {
         title: "Laundry",
@@ -23,6 +24,7 @@ const initialTodos = [
 
 export const Todo = () => {
     const [todos, setTodos] = useState(initialTodos)
+    const { theme } = useContext(ThemeContext);
 
     const handleInputChange = (e, todo) => {
         const { id } = todo
@@ -76,7 +78,7 @@ export const Todo = () => {
     };
 
     return (
-        <>
+        <div className={`app ${theme}`}>
             <h3>
                 Todo app
             </h3>
@@ -104,6 +106,6 @@ export const Todo = () => {
                 <button onClick={handleCreateNewTodo}>Create new todo</button>
             </div>
 
-        </>
+        </div>
     )
 }
