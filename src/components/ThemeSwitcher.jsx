@@ -8,7 +8,7 @@ export const ThemeSwitcher = () => {
     return (
         <>
             <h3>Switch them to {theme === 'light' ? 'dark' : 'light'} Theme:</h3>
-            <button onClick={toggleTheme}>Switch theme</button>
+            <button onClick={toggleTheme}>Toggle theme</button>
         </>
     )
 }
