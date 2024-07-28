@@ -5,6 +5,7 @@ import './App.css'
 import { Todo } from './components/Todo';
 import { ThemeProvider } from "./context/ThemeProvider"
 import { ThemeSwitcher } from "./components/ThemeSwitcher"
+import { Parent } from "./components/RefPrac/Parent"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,6 +15,8 @@ function App() {
       <ThemeSwitcher />
 
       <Todo />
+      -------------------------------------
+      <Parent />
     </ThemeProvider>
   )
 }
