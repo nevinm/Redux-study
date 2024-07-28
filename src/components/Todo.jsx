@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useState, useContext, useRef, useEffect } from "react"
 import { ThemeSwitcher } from "./ThemeSwitcher"
 import { ThemeContext } from "../context/ThemeProvider"
 import { useModal } from "../customHooks/useModal"
@@ -29,6 +29,21 @@ export const Todo = () => {
     const [todos, setTodos] = useState(initialTodos)
     const { theme } = useContext(ThemeContext);
     const { isOpen, openModal } = useModal()
+    const inputRefs = useRef({})
+
+    const setInputRef = (id, element) => {
+        if (element) {
+            inputRefs.current[id] = element;
+        }
+    };
+
+    useEffect(() => {
+        todos.forEach(todo => {
+            if (todo.isEditing && inputRefs.current[todo.id]) {
+                inputRefs.current[todo.id].focus()
+            }
+        })
+    }, todos)
 
     const handleInputChange = (e, todo) => {
         const { id } = todo
@@ -51,6 +66,7 @@ export const Todo = () => {
             }
             return todo;
         });
+        // ref.current.focus()
 
         setTodos(updatedTodos);
     };
@@ -95,7 +111,7 @@ export const Todo = () => {
                                 <input type="checkbox" defaultChecked={done} />
                                 <li className="todo-item">
                                     {isEditing ?
-                                        <input type="text" onChange={(e) => handleInputChange(e, todo)} value={title} /> :
+                                        <input type="text" ref={el => setInputRef(id, el)} onChange={(e) => handleInputChange(e, todo)} value={title} /> :
                                         <h3>{title}</h3>
                                     }
                                     {isEditing ?
