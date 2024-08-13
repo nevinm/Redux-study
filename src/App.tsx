@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, createContext } from "react";
+import "./App.css";
+import { Accordion } from "./components/Accordion";
+import { Tree } from "./components/Tree";
+import { Form } from "./components/Form";
+import { ModalParent } from "./components/ModalParent";
+import { ProtectedComponent } from "./components/ProtectedComponent";
+
+// Create the Authentication Context
+const AuthenticationContext = createContext({
+  isAuthenticated: false,
+  login: () => {},
+  logout: () => {},
+});
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Manage authentication state here
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const login = () => setIsAuthenticated(true);
+  const logout = () => setIsAuthenticated(false);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1> App </h1>
+      <button onClick={isAuthenticated ? logout : login}>
+        {isAuthenticated ? "Logout" : "Login"}
+      </button>
+
+      <AuthenticationContext.Provider value={{ isAuthenticated, login, logout }}>
+        {isAuthenticated && <ProtectedComponent />}
+      </AuthenticationContext.Provider>
     </>
-  )
+  );
 }
 
-export default App
+export { AuthenticationContext };
+export default App;
