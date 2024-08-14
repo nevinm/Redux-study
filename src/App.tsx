@@ -30,6 +30,11 @@ function App() {
       <AuthenticationContext.Provider value={{ isAuthenticated, login, logout }}>
         {isAuthenticated && <ProtectedComponent />}
       </AuthenticationContext.Provider>
+      <br />
+      <br />
+      <br />
+      <br />
+      <ModalParent />
     </>
   );
 }

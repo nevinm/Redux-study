@@ -67,7 +67,6 @@ button:focus-visible {
   }
 }
 
-
 .parent-node {
   margin-left: 20px;
 }
@@ -92,4 +91,23 @@ button:focus-visible {
   margin-top: 10px;
   justify-content: space-between;
   display: flex;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 4px;
+  position: relative;
 }

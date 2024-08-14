@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
-export const Modal = ({ children, toggleModal }) => {
+export const Modal = ({ children, toggleModal, modalRef }) => {
   return (
-    <div>
-      <p onClick={toggleModal}>x</p>
-      {children}
+    <div className="modal-overlay">
+      <div ref={modalRef} className="modal-content">
+        <p onClick={toggleModal}>x</p>
+        {children}
+      </div>
     </div>
   );
 };
