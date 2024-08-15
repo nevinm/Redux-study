@@ -1,0 +1,68 @@
+{
+  "Zoe": [
+    { "username": "Zoe", "message": "Hi Zoe!", "date": "2024-08-15 10:00" },
+    {
+      "username": "User",
+      "message": "I am pleased to announce that on this beautiful magical day of the Fall Equinox...",
+      "date": "2024-08-15 10:05"
+    },
+    {
+      "username": "Zoe",
+      "message": "...we have released the first version of the chat-ui-kit-react library",
+      "date": "2024-08-15 10:06"
+    },
+    {
+      "username": "User",
+      "message": "Yes I am :)",
+      "date": "2024-08-15 10:07"
+    },
+    { "username": "Zoe", "message": "Thank You :)", "date": "2024-08-15 10:08" }
+  ],
+  "Joe": [
+    {
+      "username": "Joe",
+      "message": "How are you?",
+      "date": "2024-08-15 09:45"
+    },
+    {
+      "username": "User",
+      "message": "Good luck with your new project!",
+      "date": "2024-08-15 09:50"
+    }
+  ],
+  "Emily": [
+    { "username": "Emily", "message": "Hello!", "date": "2024-08-14 14:00" },
+    {
+      "username": "User",
+      "message": "Are you there?",
+      "date": "2024-08-14 14:05"
+    }
+  ],
+  "Lilly": [
+    { "username": "Lilly", "message": "Hey there!", "date": "2024-08-14 13:30" }
+  ],
+  "Kai": [
+    { "username": "Kai", "message": "What's up?", "date": "2024-08-14 13:00" }
+  ],
+  "Akane": [
+    {
+      "username": "Akane",
+      "message": "When can we meet?",
+      "date": "2024-08-13 16:00"
+    }
+  ],
+  "Eliot": [
+    {
+      "username": "Eliot",
+      "message": "Nice to meet you!",
+      "date": "2024-08-13 15:30"
+    }
+  ],
+  "Patrik": [
+    {
+      "username": "Patrik",
+      "message": "Be back soon.",
+      "date": "2024-08-13 15:00"
+    }
+  ]
+}
