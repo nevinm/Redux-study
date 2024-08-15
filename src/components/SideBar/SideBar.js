@@ -12,6 +12,7 @@ export const SidebarContainer = styled.div`
 
 export const SearchBox = styled.div`
   padding: 10px;
+  display: flex;
   background-color: #f3f7fb;
   border-bottom: 1px solid #e6e6e6;
 `;

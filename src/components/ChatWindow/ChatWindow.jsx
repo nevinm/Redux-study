@@ -12,6 +12,7 @@ import {
   SendButton,
 } from "./ChatWindow";
 
+const PLACEHOLDER = "Type a message...";
 const ChatWindow = ({ friend, messages, onSendMessage }) => {
   const [message, setMessage] = useState("");
 
@@ -46,7 +47,7 @@ const ChatWindow = ({ friend, messages, onSendMessage }) => {
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type a message..."
+          placeholder={PLACEHOLDER}
         />
         <SendButton onClick={handleSend}>Send</SendButton>
       </ChatInputContainer>
