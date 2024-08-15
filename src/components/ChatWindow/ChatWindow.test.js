@@ -1,7 +1,7 @@
 // src/components/ChatWindow.test.js
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ChatWindow from "./ChatWindow";
+import ChatWindow from "./ChatWindow.jsx";
 
 const mockMessages = [
   { username: "Zoe", message: "Hi Zoe!", date: "2024-08-15 10:00" },

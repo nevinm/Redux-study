@@ -1,7 +1,6 @@
-// src/components/Sidebar.test.js
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Sidebar from "./Sidebar";
+import Sidebar from "./Sidebar.jsx";
 
 const mockFriends = ["Zoe", "Joe", "Emily"];
 const mockOnSelectFriend = jest.fn();
