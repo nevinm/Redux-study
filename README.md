@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Chat app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a boilerplate project built with Vite, React, and TypeScript. The project is set up to allow for easy development and testing.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
 
-## Expanding the ESLint configuration
+Make sure you have the following installed on your machine:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Node.js** (version 14 or higher)
+- **pnpm** (version 7 or higher)
 
-- Configure the top-level `parserOptions` property like this:
+If you don't have `pnpm` installed, you can install it globally using npm:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm install -g pnpm
+
+git clone https://github.com/nevinm/Vite-boilerplate.git
+cd Vite-boilerplate
+pnpm install
+
 ```
+Scripts
+Here are the main scripts you can run:
+```
+pnpm run dev: Starts the development server.
+pnpm run build: Builds the project for production.
+pnpm run test: Runs the test suite.
+pnpm run lint: Lints the codebase using ESLint.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+```

@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 
 export const ChatWindowContainer = styled.div`
@@ -49,12 +48,12 @@ export const MessageList = styled.div`
 `;
 
 export const Message = styled.div`
-  background-color: ${({ isSent }) => (isSent ? '#007bff' : '#e1ffc7')};
-  color: ${({ isSent }) => (isSent ? 'white' : '#333')};
+  background-color: ${({ isSent }) => (isSent ? "#007bff" : "#e1ffc7")};
+  color: ${({ isSent }) => (isSent ? "white" : "#333")};
   padding: 10px 15px;
   border-radius: 10px;
   max-width: 60%;
-  align-self: ${({ isSent }) => (isSent ? 'flex-end' : 'flex-start')};
+  align-self: ${({ isSent }) => (isSent ? "flex-end" : "flex-start")};
   position: relative;
   margin: 5px 0;
 `;
@@ -72,6 +71,7 @@ export const ChatInputContainer = styled.div`
 `;
 
 export const ChatInput = styled.input`
+  color: black;
   flex: 1;
   padding: 10px 15px;
   border-radius: 25px;

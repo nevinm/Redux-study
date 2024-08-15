@@ -18,6 +18,7 @@ export const SearchBox = styled.div`
 `;
 
 export const SearchInput = styled.input`
+  color: black;
   width: 100%;
   padding: 10px;
   border-radius: 20px;
