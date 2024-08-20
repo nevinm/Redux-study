@@ -6,7 +6,7 @@ import { Form } from "./components/Form";
 import { ModalParent } from "./components/ModalParent";
 import { ProtectedComponent } from "./components/ProtectedComponent";
 import { treeData, accordionData } from "./assets/data.js";
-
+import { PaginationContainer } from "./components/PaginationContainer"
 // Create the Authentication Context
 const AuthenticationContext = createContext({
   isAuthenticated: false,
@@ -36,11 +36,12 @@ function App() {
       <br />
       <br />
       <ModalParent /> */}
-      <Tree data={treeData} />
+      <PaginationContainer />
+      {/* <Tree data={treeData} /> */}
       <br />
       <br />
       <hr />
-      <Accordion data={accordionData} />
+      {/* <Accordion data={accordionData} /> */}
     </>
   );
 }
