@@ -115,3 +115,8 @@ button:focus-visible {
 .open-sesame {
   cursor: pointer;
 }
+
+.star-container{
+  display: flex;
+  flex-direction: row;
+}
