@@ -5,6 +5,7 @@ import { Tree } from "./components/Tree";
 import { Form } from "./components/Form";
 import { ModalParent } from "./components/ModalParent";
 import { ProtectedComponent } from "./components/ProtectedComponent";
+import { treeData, accordionData } from "./assets/data.js";
 
 // Create the Authentication Context
 const AuthenticationContext = createContext({
@@ -23,7 +24,7 @@ function App() {
   return (
     <>
       <h1> App </h1>
-      <button onClick={isAuthenticated ? logout : login}>
+      {/* <button onClick={isAuthenticated ? logout : login}>
         {isAuthenticated ? "Logout" : "Login"}
       </button>
 
@@ -34,7 +35,12 @@ function App() {
       <br />
       <br />
       <br />
-      <ModalParent />
+      <ModalParent /> */}
+      <Tree data={treeData} />
+      <br />
+      <br />
+      <hr />
+      <Accordion data={accordionData} />
     </>
   );
 }

@@ -111,3 +111,7 @@ button:focus-visible {
   border-radius: 4px;
   position: relative;
 }
+
+.open-sesame {
+  cursor: pointer;
+}
