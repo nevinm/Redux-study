@@ -1,16 +1,17 @@
 import React, { useState } from "react";
+import { useCallback } from "react";
 
-export const Tree = ({ data }) => {
+export const Tree = React.memo(({ data }) => {
   const [isNodeOpen, setIsNodeOpen] = useState({});
 
-  const handleClick = (id) => {
+  const handleClick = useCallback((id) => {
     setIsNodeOpen((prevState) => {
       return {
         ...prevState,
-        [id]: !prevState.id,
+        [id]: !prevState[id],
       };
     });
-  };
+  });
 
   return (
     <>
@@ -29,4 +30,4 @@ export const Tree = ({ data }) => {
       })}
     </>
   );
-};
+});

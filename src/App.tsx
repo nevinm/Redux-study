@@ -5,8 +5,12 @@ import { Tree } from "./components/Tree";
 import { Form } from "./components/Form";
 import { ModalParent } from "./components/ModalParent";
 import { ProtectedComponent } from "./components/ProtectedComponent";
-import { treeData, accordionData } from "./assets/data.js";
-import { PaginationContainer } from "./components/PaginationContainer"
+import { treeData, accordionData, searchItems } from "./assets/data.js";
+import { PaginationContainer } from "./components/PaginationContainer";
+import { StarRating } from "./components/StarRating.jsx";
+import { ToolTipHeading } from "./components/Tooltip";
+import { SearchBar } from "./components/SearchBar";
+
 // Create the Authentication Context
 const AuthenticationContext = createContext({
   isAuthenticated: false,
@@ -36,12 +40,15 @@ function App() {
       <br />
       <br />
       <ModalParent /> */}
-      <PaginationContainer />
+      {/* <PaginationContainer /> */}
       {/* <Tree data={treeData} /> */}
+      {/* <ToolTipHeading /> */}
       <br />
       <br />
       <hr />
       {/* <Accordion data={accordionData} /> */}
+      {/* <StarRating /> */}
+      <SearchBar items={searchItems} />
     </>
   );
 }

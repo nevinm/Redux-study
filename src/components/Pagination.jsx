@@ -34,18 +34,28 @@ export const Pagination = ({
         .map((_, index) => {
           const pageNumber = index + 1;
           return (
-            <button
-              key={pageNumber}
-              onClick={() => handlePageClick(pageNumber)}
-              className={pageNumber === currentPage ? "active" : ""}
-            >
-              {pageNumber}
-            </button>
+            <PaginationButton
+              pageNumber={pageNumber}
+              currentPage={currentPage}
+              handlePageClick={handlePageClick}
+            />
           );
         })}
       <button onClick={handleNextClick} disabled={currentPage === totalPages}>
         {">"}
       </button>
     </div>
+  );
+};
+
+const PaginationButton = ({ pageNumber, currentPage, handlePageClick }) => {
+  return (
+    <button
+      key={pageNumber}
+      onClick={() => handlePageClick(pageNumber)}
+      className={pageNumber === currentPage ? "active" : ""}
+    >
+      {pageNumber}
+    </button>
   );
 };

@@ -19,6 +19,19 @@ export const accordionData = [
   },
 ];
 
+export const searchItems = [
+  { id: 1, name: "Apple" },
+  { id: 2, name: "Banana" },
+  { id: 3, name: "Orange" },
+  { id: 4, name: "Mango" },
+  { id: 5, name: "Pineapple" },
+  { id: 6, name: "Grapes" },
+  { id: 7, name: "Strawberry" },
+  { id: 8, name: "Blueberry" },
+  { id: 9, name: "Watermelon" },
+  { id: 10, name: "Papaya" },
+];
+
 export const treeData = [
   {
     id: 1,

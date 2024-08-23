@@ -116,7 +116,22 @@ button:focus-visible {
   cursor: pointer;
 }
 
-.star-container{
+.star-container {
   display: flex;
   flex-direction: row;
+}
+
+.star {
+  font-size: 40px;
+}
+
+.tooltip {
+  position: absolute;
+  top: -30px; 
+  left: 0;
+  border: 1px solid black;
+}
+
+.tooltip-container {
+  position: relative;
 }

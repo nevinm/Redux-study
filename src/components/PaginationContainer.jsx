@@ -11,17 +11,20 @@ export const PaginationContainer = () => {
   const { total, limit = 10 } = productData || {};
   const [currentPage, setCurrentPage] = useState(1);
 
-  const fetchData = async (url) => {
-    const rawData = await fetch(url);
+  const fetchData = async (url, options) => {
+    const rawData = await fetch(url, options);
     const parsedData = await rawData.json();
     setProductData(parsedData);
   };
 
   useEffect(() => {
     const skip = (currentPage - 1) * limit;
-    console.log({ skip });
+    const controller = new AbortController();
+    fetchData(buildURL(limit, skip), {
+      signal: controller.signal,
+    });
 
-    fetchData(buildURL(limit, skip));
+    return () => controller.abort();
   }, [currentPage, limit]);
 
   const handlePaginationClick = (pageNum) => {
