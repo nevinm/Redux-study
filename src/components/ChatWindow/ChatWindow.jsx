@@ -11,15 +11,54 @@ import {
   MessageUsername,
   SendButton,
 } from "./ChatWindow";
+import { useMemo } from "react";
 
 const PLACEHOLDER = "Type a message...";
-const ChatWindow = ({ friend, messages, onSendMessage }) => {
-  const [message, setMessage] = useState("");
+
+const ChatWindow = ({
+  currentFriend,
+  friendsList,
+  messageHistory,
+  onSendMessage,
+}) => {
+  const initialDraftList = useMemo(() => {
+    return friendsList.reduce((acc, friend) => {
+      acc[friend] = "";
+      return acc;
+    }, {});
+  }, [friendsList]);
+
+  const [draftList, setDraftList] = useState(initialDraftList);
+
+  const handleInputChange = (e) => {
+    setDraftList((prevDraftList) => {
+      return {
+        ...prevDraftList,
+        [currentFriend]: e.target.value,
+      };
+    });
+  };
+
+  const renderChatInput = () => {
+    return (
+      <ChatInput
+        type="text"
+        value={draftList[currentFriend]}
+        onChange={handleInputChange}
+        placeholder={PLACEHOLDER}
+      />
+    );
+  };
 
   const handleSend = () => {
-    if (message.trim()) {
-      onSendMessage(message);
-      setMessage("");
+    if (draftList[currentFriend].trim()) {
+      onSendMessage(draftList[currentFriend]);
+      setDraftList((prevDraftList) => {
+        return {
+          ...prevDraftList,
+          [currentFriend]: "",
+        };
+      });
     }
   };
 
@@ -27,28 +66,23 @@ const ChatWindow = ({ friend, messages, onSendMessage }) => {
     <ChatWindowContainer>
       <ChatHeader>
         <FriendImage
-          src={`https://ui-avatars.com/api/?name=${friend}`}
-          alt={friend}
+          src={`https://ui-avatars.com/api/?name=${currentFriend}`}
+          alt={currentFriend}
         />
         <FriendInfo>
-          <span className="friend-name">{friend}</span>
+          <span className="friend-name">{currentFriend}</span>
         </FriendInfo>
       </ChatHeader>
       <MessageList>
-        {messages.map((msg, index) => (
-          <Message key={index} isSent={msg.username === "User"}>
-            <MessageUsername>{msg.username}</MessageUsername>
-            <div>{msg.message}</div>
+        {messageHistory.map((messageData, index) => (
+          <Message key={index} isSent={messageData.username === "User"}>
+            <MessageUsername>{messageData.username}</MessageUsername>
+            <div>{messageData.message}</div>
           </Message>
         ))}
       </MessageList>
       <ChatInputContainer>
-        <ChatInput
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder={PLACEHOLDER}
-        />
+        {renderChatInput()}
         <SendButton onClick={handleSend}>Send</SendButton>
       </ChatInputContainer>
     </ChatWindowContainer>

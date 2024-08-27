@@ -13,32 +13,37 @@ const AppContainer = styled.div`
 `;
 
 const App = () => {
-  const [selectedFriend, setSelectedFriend] = useState("Zoe");
+  const [activeFriend, setActiveFriend] = useState("Zoe");
   const [chats, setChats] = useState(chatsData);
 
-  const handleSendMessage = (message) => {
-    if (selectedFriend) {
-      setChats({
-        ...chats,
-        [selectedFriend]: [
-          ...chats[selectedFriend],
-          { username: "User", message, date: new Date().toLocaleString() },
+  const handleSendMessage = (newMessage) => {
+    if (activeFriend) {
+      setChats((prevChats) => ({
+        ...prevChats,
+        [activeFriend]: [
+          ...prevChats[activeFriend],
+          {
+            username: "User",
+            message: newMessage,
+            date: new Date().toLocaleString(),
+          },
         ],
-      });
+      }));
     }
   };
 
   return (
     <AppContainer>
       <Sidebar
-        friends={Object.keys(chats)}
-        selectedFriend={selectedFriend}
-        onSelectFriend={setSelectedFriend}
+        friendsList={Object.keys(chats)}
+        activeFriend={activeFriend}
+        onFriendSelect={setActiveFriend}
       />
-      {selectedFriend && (
+      {activeFriend && (
         <ChatWindow
-          friend={selectedFriend}
-          messages={chats[selectedFriend]}
+          currentFriend={activeFriend}
+          friendsList={Object.keys(chats)}
+          messageHistory={chats[activeFriend]}
           onSendMessage={handleSendMessage}
         />
       )}

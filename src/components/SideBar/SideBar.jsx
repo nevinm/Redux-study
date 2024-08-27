@@ -9,17 +9,17 @@ import {
   Status,
 } from "./SideBar";
 
-const Sidebar = ({ friends, selectedFriend, onSelectFriend }) => {
+const Sidebar = ({ friendsList, activeFriend, onFriendSelect }) => {
   return (
     <SidebarContainer>
       <SearchBox>
         <SearchInput type="text" placeholder="Search..." />
       </SearchBox>
-      {friends.map((friend) => (
+      {friendsList.map((friend) => (
         <Friend
           key={friend}
-          isActive={friend === selectedFriend}
-          onClick={() => onSelectFriend(friend)}
+          isActive={friend === activeFriend}
+          onClick={() => onFriendSelect(friend)}
         >
           <FriendImage
             src={`https://ui-avatars.com/api/?name=${friend}`}
